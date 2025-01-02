@@ -12,9 +12,6 @@ var bundleOption6 = new Option<string>("--author", "the creator`s name of the fi
 var bundleCommand = new Command("bundle", "bundle code files to a single file");
 
 
-
-//bundleOption4.SetDefaultValue("alphabeit");
-
 bundleOption1.AddAlias("-l");
 bundleOption2.AddAlias("-o");
 bundleOption3.AddAlias("-n");
@@ -53,10 +50,7 @@ bundleCommand.SetHandler(async (language, output, note, sort, remove, author) =>
     }
     string[] s = GetLangs(language, end, langs);
     files = files.Where(f => s.Contains(Path.GetExtension(f))).ToList();
-    //if(sort== "alphabeit")
-    //    files.Sort();
-    //else
-    //    files.OrderBy(f=> Path.GetExtension(f).ToList());
+ 
     if (sort)
         files = files.OrderBy(e => Path.GetExtension(e)).ToList();
     else
